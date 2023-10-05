@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css">
+    <style>
+        /* Add your custom CSS styles here */
+    </style>
+</head>
+<body class="bg-gray-100">
+<nav class="bg-blue-500 p-4">
+    <ul class="flex justify-center space-x-4 text-white">
+        <li><a th:href="@{/}" th:text="${'Home'}"></a></li>
+        <li><a th:href="@{/books/list}" th:text="${'Books'}"></a></li>
+        <!-- Add other navigation links here -->
+    </ul>
+</nav>
+
+
+
+</body>
+</html>

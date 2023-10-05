@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css">
+    <style>
+        /* Add your custom CSS styles here */
+    </style>
+</head>
+<body class="bg-gray-100">
+<nav class="bg-blue-500 p-4">
+    <ul class="flex justify-center space-x-4 text-white">
+        <li><a th:href="@{/}" th:text="${'Home'}"></a></li>
+        <li><a th:href="@{/books/list}" th:text="${'Books'}"></a></li>
+        <!-- Add other navigation links here -->
+    </ul>
+</nav>
+<section class="catagory_section layout_padding">
+    <div class="catagory_container">
+        <div class="container">
+            <div class="heading_container heading_center text-center"> <!-- Centered text -->
+                <h2 class="text-4xl font-bold mb-4 text-center"> <!-- Larger heading size and bold -->
+                    Books Categories
+                </h2>
+                <p class="text-gray-600 text-center">
+                    Giving used books new life is what we do best. The choice of used books is massive
+                    - from classic novels to children's books, and so much more.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> <!-- Grid layout with responsive columns -->
+                <div th:each="book : ${books}" class="col-span-1">
+                    <div class="box p-5">
+                        <div class="img-box p-4">
+
+                            <img th:src="${book.image}" alt="Book Cover" class="w-full">
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-semibold mt-2" th:text="${book.title}"></h5>
+                        </div>
+                        <div class="detail-box">
+                            <h5 class="text-lg font-semibold"> <!-- Larger text and bold -->
+                                <span th:text="${book.author}"></span>
+                            </h5>
+                            <!-- Add any other book details you want to display -->
+                        </div>
+                        <!--Other-->
+                        <div class="flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900 dark:text-white"
+                  th:text="${book.price}"></span> <!-- Use Thymeleaf to set the book price -->
+                            <!-- Add to cart button -->
+                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800
+            focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium
+            rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-900 dark:
+            hover:bg-blue-700 dark:focus:ring-blue-800 mt-2">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-semibold mb-4">List of Books</h1>
+    <div class="grid grid-cols-3 gap-4">
+        <div th:each="book : ${books}" class="bg-white rounded-lg shadow-lg p-4">
+            <a th:href="@{'/books/details/' + ${book.id}}">
+
+                <img th:src="${book.image}" class="card-img-top" alt="Book Cover">
+
+                <h2 class="text-xl font-semibold mt-2" th:text="${book.title}"></h2>
+                <p class="text-gray-700" th:text="${book.author}"></p>
+                <p class="text-gray-700" th:text="${book.price}"></p>
+            </a>
+        </div>
+    </div>
+</div>
+-->
+</body>
+</html>

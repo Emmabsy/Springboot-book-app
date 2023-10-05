@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+<nav class="bg-blue-500 p-4">
+  <div class="container mx-auto">
+    <ul class="flex justify-center space-x-6">
+      <li><a th:href="@{/}" class="text-white">Home</a></li>
+      <li><a th:href="@{/books}" class="text-white">Books</a></li>
+      <!-- Add other navigation links here -->
+    </ul>
+  </div>
+</nav>
+<div class="container mx-auto p-4">
+  <h1 class="text-3xl font-semibold mb-4">Book Details</h1>
+
+  <!-- Display book details -->
+  <div class="bg-white rounded-lg shadow-lg p-4">
+    <img th:src="${book.imageUrl}" alt="Book Cover" class="mb-4 max-w-full h-auto">
+    <p class="text-xl font-semibold" th:text="${book.title}"></p>
+    <p><strong>Author:</strong> <span th:text="${book.author}"></span></p>
+    <p><strong>ISBN:</strong> <span th:text="${book.isbn}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${book.description}"></span></p>
+    <p><strong>Price:</strong> <span th:text="${'Price: $' + book.price}"></span></p>
+    <p><strong>Publication Year:</strong> <span th:text="${'Publication Year: ' + book.year}"></span></p>
+    <p><strong>Quantity in Stock:</strong> <span th:text="${'Quantity in Stock: ' + book.quantity}"></span></p>
+  </div>
+</div>
+</body>
+</html>
